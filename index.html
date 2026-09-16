@@ -121,9 +121,9 @@
 
             <h1>There is a birthday message for you.</h1>
 
-            <p>
-                Click to initialize.<span class="cursor"></span>
-            </p>
+           <p id="status-message">
+    Click to initialize.<span class="cursor"></span>
+</p>
 
             <button class="initialize-button" onclick="initializeProtocol()">
     [ INITIALIZE ]
@@ -147,13 +147,16 @@
 
     let currentMessage = 0;
 
-    function initializeProtocol() {
+function initializeProtocol() {
 
-        document.querySelector(".initialize-button").style.display =
-            "none";
+    document.querySelector(".initialize-button").style.display =
+        "none";
 
-        showNextMessage();
-    }
+    document.querySelector("#status-message").style.display =
+        "none";
+
+    showNextMessage();
+}
 
     function showNextMessage() {
 
