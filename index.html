@@ -66,7 +66,7 @@
     margin-bottom: 20px;
     min-height: 60px;
 }
- h1.narration {
+h1.finding {
     font-size: clamp(22px, 4vw, 38px);
     font-style: italic;
     opacity: 0.9;
@@ -153,46 +153,111 @@
 
 <script>
 
-const messages = [
+const scenes = [
+
     {
-        text: "SYSTEM INITIALIZING…",
-        type: "system"
+        lines: [
+            {
+                text: "Scanning recipient…",
+                type: "system",
+                typing: true
+            },
+            {
+                text: "Highly adorable being detected.",
+                type: "finding",
+                typing: true
+            }
+        ]
     },
+
     {
-        text: "Scanning recipient…",
-        type: "system"
+        lines: [
+            {
+                text: "Birthday protocol activated.",
+                type: "system",
+                typing: true
+            },
+            {
+                text: "You have been upgraded to Version 30.0.",
+                type: "system",
+                typing: true
+            },
+            {
+                text: "Warning: warranty has expired.",
+                type: "system",
+                typing: true
+            }
+        ]
     },
+
     {
-        text: "Highly adorable being detected.",
-        type: "narration"
+        lines: [
+            {
+                text: "Do not panic.",
+                type: "system",
+                typing: true
+            },
+            {
+                text: "Most of your existing features remain functional.",
+                type: "system",
+                typing: true
+            }
+        ]
     },
+
     {
-        text: "Birthday protocol activated.",
-        type: "system"
-    },
-    {
-        text: "You have been upgraded to Version 30.0.",
-        type: "system"
-    },
-    {
-        text: "Warning: warranty has expired.",
-        type: "system"
-    },
-    {
-        text: "Do not panic.",
-        type: "system"
-    },
-    {
-        text: "Most of your existing features remain functional.",
-        type: "system"
-    },
-    {
-        text: "Running personality diagnostics…",
-        type: "narration"
+        lines: [
+            {
+                text: "Running personality diagnostics…",
+                type: "system",
+                typing: true
+            },
+            {
+                text: "Industrial designer detected.",
+                type: "finding",
+                typing: false
+            },
+            {
+                text: "Scanning design philosophy…",
+                type: "system",
+                typing: false
+            },
+            {
+                text: "Conventional solutions: rejected.",
+                type: "finding",
+                typing: false
+            },
+            {
+                text: "Normal objects: insufficient.",
+                type: "finding",
+                typing: false
+            },
+            {
+                text: "Unnecessarily complicated ideas: enthusiastically accepted.",
+                type: "finding",
+                typing: false
+            },
+            {
+                text: "User appears to enjoy building things that make everyone else ask…",
+                type: "finding",
+                typing: false
+            },
+            {
+                text: "But… why?",
+                type: "finding",
+                typing: true
+            },
+            {
+                text: "User’s default response: “Because I can.”",
+                type: "finding",
+                typing: false
+            }
+        ]
     }
+
 ];
 
-let currentMessage = 0;
+let currentScene = 0;
 
 function initializeProtocol() {
 
@@ -202,38 +267,74 @@ function initializeProtocol() {
     document.querySelector("#status-message").style.display =
         "none";
 
-    showNextMessage();
+    showNextScene();
 }
 
-function showNextMessage() {
+function showNextScene() {
 
-    if (currentMessage < messages.length) {
+    if (currentScene < scenes.length) {
 
-        const heading = document.querySelector("h1");
-        const message = messages[currentMessage].text;
-        const messageType = messages[currentMessage].type;
+        const messageArea = document.querySelector("#message-area");
 
-        heading.textContent = "";
-        heading.className = messageType;
+        messageArea.innerHTML = "";
 
-        currentMessage++;
+        const scene = scenes[currentScene];
+
+        currentScene++;
+
+        showNextLine(scene.lines, 0);
+
+    }
+
+}
+
+function showNextLine(lines, lineIndex) {
+
+    if (lineIndex >= lines.length) {
+
+        setTimeout(showNextScene, 2500);
+
+        return;
+
+    }
+
+    const line = lines[lineIndex];
+
+    const heading = document.createElement("h1");
+
+    heading.className = line.type;
+
+    messageArea.appendChild(heading);
+
+    if (line.typing) {
 
         let character = 0;
 
         const typing = setInterval(function() {
 
-            heading.textContent += message[character];
+            heading.textContent += line.text[character];
+
             character++;
 
-            if (character === message.length) {
+            if (character === line.text.length) {
 
                 clearInterval(typing);
 
-                setTimeout(showNextMessage, 2000);
+                setTimeout(function() {
+                    showNextLine(lines, lineIndex + 1);
+                }, 800);
 
             }
 
         }, 50);
+
+    } else {
+
+        heading.textContent = line.text;
+
+        setTimeout(function() {
+            showNextLine(lines, lineIndex + 1);
+        }, 500);
 
     }
 
