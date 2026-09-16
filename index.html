@@ -134,14 +134,21 @@
 
 <script>
     function initializeProtocol() {
+
+        document.querySelector(".initialize-button").style.display =
+            "none";
+
         document.querySelector("h1").textContent =
             "SYSTEM INITIALIZING…";
 
         document.querySelector("p").innerHTML =
             "Scanning recipient…<span class='cursor'></span>";
 
-        document.querySelector(".initialize-button").style.display =
-            "none";
+        setTimeout(function() {
+            document.querySelector("p").innerHTML =
+                "Highly adorable being detected.<span class='cursor'></span>";
+        }, 2000);
+
     }
 </script>
 
