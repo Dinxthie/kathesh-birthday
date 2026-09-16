@@ -133,23 +133,43 @@
     </main>
 
 <script>
+
+    const messages = [
+        "SYSTEM INITIALIZING…",
+        "Scanning recipient…",
+        "Highly adorable being detected.",
+        "Birthday protocol activated.",
+        "You have been upgraded to Version 30.0.",
+        "Warning: warranty has expired.",
+        "Do not panic.",
+        "Most of your existing features remain functional."
+    ];
+
+    let currentMessage = 0;
+
     function initializeProtocol() {
 
         document.querySelector(".initialize-button").style.display =
             "none";
 
-        document.querySelector("h1").textContent =
-            "SYSTEM INITIALIZING…";
+        showNextMessage();
+    }
 
-        document.querySelector("p").innerHTML =
-            "Scanning recipient…<span class='cursor'></span>";
+    function showNextMessage() {
 
-        setTimeout(function() {
-            document.querySelector("p").innerHTML =
-                "Highly adorable being detected.<span class='cursor'></span>";
-        }, 2000);
+        if (currentMessage < messages.length) {
+
+            document.querySelector("h1").textContent =
+                messages[currentMessage];
+
+            currentMessage++;
+
+            setTimeout(showNextMessage, 2000);
+
+        }
 
     }
+
 </script>
 
 </body>
