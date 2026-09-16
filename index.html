@@ -158,20 +158,36 @@ function initializeProtocol() {
     showNextMessage();
 }
 
-    function showNextMessage() {
+function showNextMessage() {
 
-        if (currentMessage < messages.length) {
+    if (currentMessage < messages.length) {
 
-            document.querySelector("h1").textContent =
-                messages[currentMessage];
+        const heading = document.querySelector("h1");
+        const message = messages[currentMessage];
 
-            currentMessage++;
+        heading.textContent = "";
+        currentMessage++;
 
-            setTimeout(showNextMessage, 2000);
+        let character = 0;
 
-        }
+        const typing = setInterval(function() {
+
+            heading.textContent += message[character];
+            character++;
+
+            if (character === message.length) {
+
+                clearInterval(typing);
+
+                setTimeout(showNextMessage, 2000);
+
+            }
+
+        }, 50);
 
     }
+
+}
 
 </script>
 
