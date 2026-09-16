@@ -141,17 +141,43 @@
 <script>
 
    const messages = [
-    "SYSTEM INITIALIZING…",
-    "Scanning recipient…",
-    "Highly adorable being detected.",
-    "Birthday protocol activated.",
-    "You have been upgraded to Version 30.0.",
-    "Warning: warranty has expired.",
-    "Do not panic.",
-    "Most of your existing features remain functional.",
-    "Running personality diagnostics…"
-    ];
-
+    {
+        text: "SYSTEM INITIALIZING…",
+        type: "system"
+    },
+    {
+        text: "Scanning recipient…",
+        type: "system"
+    },
+    {
+        text: "Highly adorable being detected.",
+        type: "narration"
+    },
+    {
+        text: "Birthday protocol activated.",
+        type: "system"
+    },
+    {
+        text: "You have been upgraded to Version 30.0.",
+        type: "system"
+    },
+    {
+        text: "Warning: warranty has expired.",
+        type: "system"
+    },
+    {
+        text: "Do not panic.",
+        type: "system"
+    },
+    {
+        text: "Most of your existing features remain functional.",
+        type: "system"
+    },
+    {
+        text: "Running personality diagnostics…",
+        type: "narration"
+    }
+];
     let currentMessage = 0;
 
 function initializeProtocol() {
