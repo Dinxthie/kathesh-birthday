@@ -146,8 +146,7 @@
 
 <script>
 
-   const message = messages[currentMessage].text;
-    const messageType = messages[currentMessage].type;
+const messages = [
     {
         text: "SYSTEM INITIALIZING…",
         type: "system"
@@ -185,7 +184,8 @@
         type: "narration"
     }
 ];
-    let currentMessage = 0;
+
+let currentMessage = 0;
 
 function initializeProtocol() {
 
@@ -203,10 +203,12 @@ function showNextMessage() {
     if (currentMessage < messages.length) {
 
         const heading = document.querySelector("h1");
-        const message = messages[currentMessage];
+        const message = messages[currentMessage].text;
+        const messageType = messages[currentMessage].type;
 
         heading.textContent = "";
         heading.className = messageType;
+
         currentMessage++;
 
         let character = 0;
