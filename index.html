@@ -136,7 +136,7 @@ h1.finding {
 
            <div id="message-area">
 
-   <h1>INCOMING TRANSMISSION: KATHESH v30.0</h1>
+   <h1>INCOMING TRANSMISSION:<br> KATHESH v30.0</h1>
 
 <p>
 Happy Birthday! A custom intelligence report generated from
@@ -159,40 +159,28 @@ Click to execute boot sequence.<span class="cursor"></span>
 
 const scenes = [
 
-    {
-        lines: [
-            {
-                text: "Scanning recipient…",
-                type: "system",
-                typing: true
-            },
-            {
-                text: "Highly adorable being detected.",
-                type: "finding",
-                typing: true
-            }
-        ]
-    },
-
-    {
-        lines: [
-            {
-                text: "Birthday protocol activated.",
-                type: "system",
-                typing: true
-            },
-            {
-                text: "You have been upgraded to Version 30.0.",
-                type: "system",
-                typing: true
-            },
-            {
-                text: "Warning: warranty has expired.",
-                type: "system",
-                typing: true
-            }
-        ]
-    },
+   {
+    lines: [
+        {
+            text: "SYSTEM INITIALIZING…",
+            type: "system",
+            typing: true,
+            delay: 1500
+        },
+        {
+            text: "Version 29.0 expired.",
+            type: "system",
+            typing: false,
+            delay: 1200
+        },
+        {
+            text: "Version 30.0 loading…",
+            type: "system",
+            typing: true,
+            delay: 1500
+        }
+    ]
+},
 
     {
         lines: [
