@@ -299,7 +299,7 @@ function showNextLine(lines, lineIndex) {
     }
 
     const line = lines[lineIndex];
-
+    const messageArea = document.querySelector("#message-area");
     const heading = document.createElement("h1");
 
     heading.className = line.type;
