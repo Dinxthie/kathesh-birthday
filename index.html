@@ -370,6 +370,9 @@ function showNextLine(lines, lineIndex) {
 
   if (lineIndex >= lines.length) {
 
+    document.querySelector("#continue-button").textContent =
+    "[ CHECK STATUS ]";
+
     document.querySelector("#continue-button").style.display =
         "inline-block";
 
