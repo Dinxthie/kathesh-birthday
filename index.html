@@ -232,99 +232,72 @@ const scenes = [
     ]
 },
     {
-         buttonText: "[ RUN SUBROUTINE SCAN ]",
+     buttonText: "[ RUN SUBROUTINE SCAN ]",
+
+lines: [
+    {
+        text: "DIAGNOSTIC LOG 01: CREATIVE HARDWARE",
+        type: "system",
+        typing: true,
+        delay: 1200
+    },
+    {
+        text: "Industrial designer detected.",
+        type: "finding",
+        typing: false,
+        delay: 1500
+    },
+    {
+        text: "System analysis reveals an aggressive rejection of normal objects and a deep, enthusiastic commitment to unnecessarily complicated ideas.",
+        type: "finding",
+        typing: false,
+        delay: 4000
+    },
+    {
+        text: "Default user response to “Why build that?” remains hardcoded: “Because I can.”",
+        type: "finding",
+        typing: false,
+        delay: 2500
+    }
+]
+},
+
+{
+    buttonText: "[ READ SUBROUTINE RESULTS ]",
+
     lines: [
         {
-            text: "DIAGNOSTIC LOG 01: CREATIVE HARDWARE",
+            text: "Sub-routine scan:",
             type: "system",
             typing: true,
-            delay: 1200
+            delay: 1000
         },
         {
-            text: "Industrial designer detected.",
+            text: "Chronic IKEA redesign disorder detected.",
             type: "finding",
             typing: false,
-            delay: 1500
+            delay: 2500
         },
         {
-            text: "System analysis reveals an aggressive rejection of normal objects and a deep, enthusiastic commitment to unnecessarily complicated ideas.",
+            text: "Plant capacity at 120%.",
             type: "finding",
             typing: false,
-            delay: 4000
+            delay: 2000
         },
-       {
-    text: "Default user response to “Why build that?” remains hardcoded: “Because I can.”",
-    type: "finding",
-    typing: false,
-    delay: 2500
-},
-{
-    text: "Sub-routine scan: IKEA detected.",
-    type: "system",
-    typing: false,
-    delay: 1500
-},
-{
-    text: "System confirms an alarming obsession with mentally redesigning flat-pack furniture.",
-    type: "finding",
-    typing: false,
-    delay: 3500
-},
-{
-    text: "Further physical space diagnostics indicate a severe plant overload.",
-    type: "finding",
-    typing: false,
-    delay: 3000
-},
-{
-    text: "Available floor space: 0%",
-    type: "finding",
-    typing: false,
-    delay: 1800
-},
-{
-    text: "User stance: “I can fit one more.”",
-    type: "finding",
-    typing: false,
-    delay: 1800
-},
-{
-    text: "System advice: You cannot.",
-    type: "system",
-    typing: false,
-    delay: 1800
-},
-{
-    text: "User stance: “Watch me.”",
-    type: "finding",
-    typing: false,
-    delay: 2500
-}
-    ]
-},
- {
-    lines: [
         {
-            text: "DIAGNOSTIC LOG 01 FINDINGS:",
+            text: "System warning: No room left.",
             type: "system",
-            typing: true,
-            delay: 1200
+            typing: false,
+            delay: 2000
         },
         {
-            text: "User operates at critical levels of terminal stubbornness.",
+            text: "User override: “Watch me fit one more.”",
             type: "finding",
             typing: false,
-            delay: 3000
-        },
-          {
-            text: "Self-correction protocols: Present, but irreparably bypassed.",
-            type: "finding",
-            typing: false,
-            delay: 3500
+            delay: 2500
         }
     ]
-}
-
+},
 ];
 
 let currentScene = 0;
