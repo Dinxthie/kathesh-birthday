@@ -151,10 +151,10 @@ Click to execute boot sequence.<span class="cursor"></span>
 <button class="initialize-button" onclick="initializeProtocol()">
 [ START TRANSMISSION ]
 </button>
-            <button id="continue-button" class="initialize-button" style="display: none;">
+            <button id="continue-button" class="initialize-button"
+    style="display: none;" onclick="continueProtocol()">
     [ CONTINUE ]
 </button>
-
         </div>
     </main>
 
@@ -331,10 +331,21 @@ function initializeProtocol() {
     document.querySelector(".initialize-button").style.display =
         "none";
 
+    document.querySelector("#continue-button").style.display =
+        "none";
+
     document.querySelector("#status-message").style.display =
         "none";
 
     showNextScene();
+}
+    function continueProtocol() {
+
+    document.querySelector("#continue-button").style.display =
+        "none";
+
+    showNextScene();
+
 }
 
 function showNextScene() {
@@ -357,13 +368,14 @@ function showNextScene() {
 
 function showNextLine(lines, lineIndex) {
 
-    if (lineIndex >= lines.length) {
+  if (lineIndex >= lines.length) {
 
-        setTimeout(showNextScene, 2500);
+    document.querySelector("#continue-button").style.display =
+        "inline-block";
 
-        return;
+    return;
 
-    }
+}
 
     const line = lines[lineIndex];
 
