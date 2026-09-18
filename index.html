@@ -163,6 +163,7 @@ Click to execute boot sequence.<span class="cursor"></span>
 const scenes = [
 
    {
+       buttonText: "[ CHECK STATUS ]",
     lines: [
         {
             text: "SYSTEM INITIALIZING…",
@@ -370,8 +371,8 @@ function showNextLine(lines, lineIndex) {
 
   if (lineIndex >= lines.length) {
 
-    document.querySelector("#continue-button").textContent =
-    "[ CHECK STATUS ]";
+document.querySelector("#continue-button").textContent =
+    scenes[currentScene - 1].buttonText || "[ CONTINUE ]";
 
     document.querySelector("#continue-button").style.display =
         "inline-block";
