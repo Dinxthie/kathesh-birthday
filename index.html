@@ -58,6 +58,10 @@
             opacity: 0.7;
             margin-bottom: 30px;
         }
+        
+        .welcome-message {
+    color: #00aaff;
+}
 
      h1 {
     font-size: clamp(22px, 4vw, 38px);
@@ -67,17 +71,20 @@
     min-height: 60px;
 }
 h1.finding {
-    font-size: clamp(17px, 3vw, 23px);
-    font-style: italic;
-    opacity: 0.9;
-    color: #00d9ff;
-    text-shadow: 0 0 8px rgba(0, 217, 255, 0.5);
+    color: #00ffff;
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0 0 12px 0;
+    padding: 0;
+    font-weight: normal;
 }
         h1.system {
-    font-size: clamp(22px, 4vw, 38px);
-    font-style: normal;
-    opacity: 1;
-    text-shadow: 0 0 10px #00ff88;
+    margin: 0 0 12px 0;
+    padding: 0;
+}
+        .warning {
+    color: #ff3333;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
 }
 
        p {
@@ -153,11 +160,11 @@ body.shutdown .screen {
 
    <h1>INCOMING BIRTHDAY TRANSMISSION FROM 13,360 KM AWAY</h1>
 
-<p>
+<p class="welcome-message">
 Hello Kathesh,
 </p>
 
-<p id="status-message">
+<p id="status-message" class="welcome-message">
 Your version 30.0 is ready. And it comes with a special message. Ready to start?<span class="cursor"></span>
 </p>
 </div>
@@ -187,7 +194,7 @@ const scenes = [
         },
         {
             text: "Version 29.9 expired.",
-            type: "system",
+            type: "warning",
             typing: false,
             delay: 1200
         },
@@ -217,14 +224,14 @@ const scenes = [
         {
             text: "Warning: Original manufacturer warranty no longer valid.",
             type: "system",
-            typing: false,
+            typing: warning,
             delay: 2000
         },
         {
             text: "Do not panic; all core operations remains fully functional.",
             type: "system",
             typing: false,
-            delay: 2500
+            delay: 2000
         }
     ]
 },
@@ -241,13 +248,13 @@ const scenes = [
             text: "Highly adorable being detected.",
             type: "finding",
             typing: false,
-            delay: 2500
+            delay: 1500
         }, 
         {
             text: "Need to run diagnostics to conclude.",
             type: "system",
             typing: false,
-            delay: 2500
+            delay: 1500
         }
     ]
 },
@@ -265,25 +272,25 @@ lines: [
         text: "Industrial designer detected.",
         type: "finding",
         typing: false,
-        delay: 2000
+        delay: 1500
     },
     {
         text: "Normal objects: Rejected.",
         type: "finding",
         typing: false,
-        delay: 2000
+        delay: 1500
     },
       {
         text: "Unnecessarily complex ideas: Enthusiastically accepted.",
         type: "finding",
         typing: false,
-        delay: 2500
+        delay: 1500
     },
     {
         text: 'Standard governing protocal: "Because I can."',
         type: "finding",
         typing: false,
-        delay: 2500
+        delay: 2000
     }
 ]
 },
@@ -302,25 +309,25 @@ lines: [
             text: "Chronic IKEA obsession detected.",
             type: "finding",
             typing: false,
-            delay: 2500
+            delay: 1500
         },
         {
             text: "Plant capacity at 120%.",
             type: "finding",
             typing: false,
-            delay: 2000
+            delay: 1500
         },
         {
             text: "System warning: No room left.",
-            type: "system",
+            type: "warning",
             typing: false,
-            delay: 2000
+            delay: 1500
         },
         {
             text: "User override: “Watch me fit one more.”",
             type: "finding",
             typing: false,
-            delay: 2500
+            delay: 2000
         }
        ]
 },
@@ -345,7 +352,7 @@ lines: [
             text: "Self-correction protocols: Present, but deliberately bypassed. Becomes active when necessary.",
             type: "finding",
             typing: false,
-            delay: 3500
+            delay: 3000
                }
     ]
 },
@@ -388,7 +395,7 @@ lines: [
             text: "Ponytail threshold: NON-EXISTENT. Asked to be slapped if ever attempted.",
             type: "finding",
             typing: false,
-            delay: 3000
+            delay: 2500
         },
         {
             text: "Safety protocols active: Extreme vigilance for snakes detected.",
@@ -397,10 +404,10 @@ lines: [
             delay: 2000
         },
         {
-            text: "IF SNAKE ENOUNTERED = INITIATE EMERGENCY SHUTDOWN.",
-            type: "system",
+            text: "IF SNAKE ENOUNTERED = WILL INITIATE EMERGENCY SHUTDOWN.",
+            type: "warning",
             typing: false,
-            delay: 3000
+            delay: 2500
                 }
     ]
 },
@@ -418,18 +425,19 @@ lines: [
             text: "Overall functional efficiency: Flawless.",
             type: "finding",
             typing: false,
-            delay: 2500
+            delay: 1500
         },
         {
             text: "Primary vulnerability: Legless reptiles.",
             type: "finding",
             typing: false,
-            delay: 2500
+            delay: 1500
         }
     ]
 },
 
 {
+    autoAdvance: true,
 
     lines: [
         {
@@ -454,11 +462,11 @@ lines: [
             text: "Attachment to plants, music, and IKEA: Confirmed.",
             type: "finding",
             typing: false,
-            delay: 2200
+            delay: 1800
         },
         {
             text: "System hesitates…",
-            type: "system",
+            type: "warning",
             typing: true,
             delay: 3000
         },
@@ -478,25 +486,25 @@ lines: [
             text: "Location: Vancouver, Canada.",
             type: "finding",
             typing: false,
-            delay: 1800
+            delay: 1500
         },
         {
             text: "Status: Halfway across the world.",
             type: "finding",
             typing: false,
-            delay: 1800
+            delay: 1500
         },
         {
             text: "Distance: Inconvenient.",
             type: "finding",
             typing: false,
-            delay: 1800
+            delay: 1500
         },
        {
             text: "Emotional proximity however: Exceptionally close.",
             type: "finding",
             typing: false,
-            delay: 2500
+            delay: 1500
         }
     ]
 },
@@ -515,31 +523,31 @@ lines: [
             text: "Ability to laugh together: Extremely high",
             type: "finding",
             typing: false,
-            delay: 2500
+            delay: 1800
         },
         {
             text: "Bandwidth to yap for 3+ hours: Exceptionally high",
             type: "finding",
             typing: false,
-            delay: 3000
+            delay: 1800
         },
             {
             text: "Barriers to continue: High but both enthusiastically choose to continue anyway.",
             type: "finding",
             typing: false,
-            delay: 3000
+            delay: 2500
         },
         {
             text: "Mutual attachment: Confirmed.",
             type: "finding",
             typing: false,
-            delay: 2000
+            delay: 1800
         },
         {
-            text: "Affection level: Dangerously high.",
+            text: "Affection level: Dangerously cute.",
             type: "finding",
             typing: false,
-            delay: 2000
+            delay: 1800
            }
     ]
 },
@@ -555,7 +563,7 @@ lines: [
         },
         {
              text: "ERROR: System cannot make decisions for user.",
-            type: "system",
+            type: "warning",
             typing: false,
             delay: 2500
         },
@@ -578,7 +586,7 @@ lines: [
             delay: 1200
         },
         {
-            text: "Distance detected, but completely irrelevant.",
+            text: "Distance detected, but seems irrelevant.",
             type: "finding",
             typing: false,
             delay: 2500
@@ -590,7 +598,7 @@ lines: [
             delay: 3000
         },
                  {
-            text: "Conclusion reach: It's a risk worth taking.",
+            text: "Conclusion reach: It's a risk worth taking :).",
             type: "system",
             typing: false,
             delay: 3000
@@ -599,7 +607,7 @@ lines: [
 },
 
 {
-    buttonText: "[ FINAL TRANSMISSION INCOMING. CLICK TO ACCEPT ]",
+    buttonText: "[ FINAL TRANSMISSION INCOMING. CLICK TO ACCEPT. ]",
 
     lines: [
         {
@@ -612,7 +620,7 @@ lines: [
             text: "Thirty years of stories, questionable purchases, beautiful places, strange ideas, friendships, growth and an impressive refusal to design a normal product. Not a bad first 30 years.",
             type: "finding",
             typing: false,
-            delay: 6000
+            delay: 4500
         },
         {
             text: "Recommended goals for the new decade:",
@@ -624,25 +632,25 @@ lines: [
             text: "Visit places you've never been.",
             type: "finding",
             typing: false,
-            delay: 3000
+            delay: 2000
         },
         {
             text: "Design and build things nobody expected.",
             type: "finding",
             typing: false,
-            delay: 3000
+            delay: 2000
         },
         {
             text: "Buy plants you definitely don't have room for.",
             type: "finding",
             typing: false,
-            delay: 3000
+            delay: 2000
         },
         {
             text: "Eat an irresponsible amount of string hoppers.",
             type: "finding",
             typing: false,
-            delay: 3000
+            delay: 2000
         },
         {
     text: "Stay exactly the wonderfully adorable person you are.",
@@ -665,7 +673,7 @@ lines: [
         },
         {
             text: "Virtual presence detected.",
-            type: "system",
+            type: "warning",
             typing: true,
             delay: 1500
         },
@@ -673,7 +681,7 @@ lines: [
             text: "She cannot be there to annoy you in person today, which the system acknowledges is an absolute tragedy.",
             type: "finding",
             typing: false,
-            delay: 5000
+            delay: 3000
         },
         {
             text: "However, a message has been transmitted from across the world containing a ridiculous amount of affection and one essential reminder:",
@@ -685,7 +693,7 @@ lines: [
             text: "She cares about you, she misses you, and somewhere very far away, she is smiling just thinking about you.",
             type: "finding",
             typing: false,
-            delay: 6000
+            delay: 5000
         }
     ]
 },
