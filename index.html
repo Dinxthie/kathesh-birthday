@@ -723,12 +723,30 @@ function initializeProtocol() {
 
     showNextScene();
 }
-    function continueProtocol() {
+   function continueProtocol() {
 
     document.querySelector("#continue-button").style.display =
         "none";
 
+    const scene = scenes[currentScene - 1];
+
+    if (scene.buttonText === "END TRANSMISSION.") {
+        shutdownSystem();
+        return;
+    }
+
     showNextScene();
+
+}
+    function shutdownSystem() {
+
+    document.body.classList.add("shutdown");
+
+    setTimeout(function() {
+
+        document.querySelector(".screen").style.display = "none";
+
+    }, 2000);
 
 }
 
