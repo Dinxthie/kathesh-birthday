@@ -122,6 +122,21 @@ h1.finding {
                 opacity: 0;
             }
         }
+        body {
+    transition: background-color 2s ease;
+}
+
+.screen {
+    transition: opacity 2s ease;
+}
+
+body.shutdown {
+    background-color: #000000;
+}
+
+body.shutdown .screen {
+    opacity: 0;
+}
     </style>
 </head>
 
