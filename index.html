@@ -151,10 +151,51 @@ body.shutdown {
 body.shutdown .screen {
     opacity: 0;
 }
+        /* Floating birthday emojis */
+
+#emoji-background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.floating-emoji {
+    position: absolute;
+    bottom: -60px;
+    font-size: 24px;
+    opacity: 0;
+    animation: floatUp 12s linear infinite;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.6));
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.7;
+    }
+
+    85% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
     </style>
 </head>
 
 <body>
+<body>
+
+    <div id="emoji-background"></div>
 
     <main class="screen">
         <div class="terminal-text">
@@ -868,6 +909,36 @@ function showNextLine(lines, lineIndex) {
         }, line.delay);
 
     }
+    // Floating birthday emojis
+
+const emojiList = ["💚", "✨", "💫", "💕", "🪩", "⭐"];
+
+function createFloatingEmoji() {
+
+    const emoji = document.createElement("span");
+
+    emoji.className = "floating-emoji";
+
+    emoji.textContent =
+        emojiList[Math.floor(Math.random() * emojiList.length)];
+
+    emoji.style.left = Math.random() * 100 + "vw";
+
+    emoji.style.animationDuration =
+        (8 + Math.random() * 8) + "s";
+
+    emoji.style.fontSize =
+        (16 + Math.random() * 20) + "px";
+
+    document.querySelector("#emoji-background")
+        .appendChild(emoji);
+
+    setTimeout(function() {
+        emoji.remove();
+    }, 16000);
+}
+
+setInterval(createFloatingEmoji, 1200);
 
 }
 
