@@ -754,14 +754,25 @@ function showNextLine(lines, lineIndex) {
 
   if (lineIndex >= lines.length) {
 
-document.querySelector("#continue-button").textContent =
-    scenes[currentScene - 1].buttonText || "[ CONTINUE ]";
+    const scene = scenes[currentScene - 1];
 
-    document.querySelector("#continue-button").style.display =
-        "inline-block";
+    if (scene.autoAdvance) {
+
+        setTimeout(function() {
+            showNextScene();
+        }, 2000);
+
+    } else {
+
+        document.querySelector("#continue-button").textContent =
+            scene.buttonText || "[ CONTINUE ]";
+
+        document.querySelector("#continue-button").style.display =
+            "inline-block";
+
+    }
 
     return;
-
 }
 
     const line = lines[lineIndex];
