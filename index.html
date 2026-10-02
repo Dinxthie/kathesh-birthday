@@ -1149,23 +1149,32 @@ function blowCandles() {
     setTimeout(function() {
         const cakeContainer = document.querySelector(".cake-container");
 
-        cakeContainer.innerHTML = `
-            <div class="heart-screen">
-                <div class="heart">♡</div>
+        // Start fading the cake out
+        cakeContainer.classList.add("cake-fade-out");
 
-                <button
-                    class="initialize-button"
-                    id="end-transmission-button">
-                    [ END TRANSMISSION. ]
-                </button>
-            </div>
-        `;
+        setTimeout(function() {
+            cakeContainer.innerHTML = `
+                <div class="heart-screen">
+                    <div class="heart">♡</div>
 
-        document
-            .querySelector("#end-transmission-button")
-            .addEventListener("click", shutdownSystem);
+                    <button
+                        class="initialize-button"
+                        id="end-transmission-button">
+                        [ END TRANSMISSION. ]
+                    </button>
+                </div>
+            `;
 
-    }, 900);
+            document
+                .querySelector("#end-transmission-button")
+                .addEventListener("click", shutdownSystem);
+
+            // Fade the heart in
+            cakeContainer.classList.add("heart-fade-in");
+
+        }, 800);
+
+    }, 1200);
 }
 </script>
     
