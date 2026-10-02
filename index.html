@@ -1051,6 +1051,31 @@ function showBirthdayCake() {
     `;
 
 }
+    function blowCandles() {
+
+    const flames = document.querySelectorAll(".flame");
+
+    flames.forEach(function(flame) {
+        flame.classList.add("blown");
+    });
+
+    const button = document.querySelector("#blow-button");
+
+    button.style.display = "none";
+
+    setTimeout(function() {
+
+        const endButton = document.createElement("button");
+
+        endButton.className = "initialize-button";
+        endButton.textContent = "[ END TRANSMISSION. ]";
+        endButton.onclick = shutdownSystem;
+
+        document.querySelector(".cake-container").appendChild(endButton);
+
+    }, 900);
+
+}
 </script>
     
 </body>
