@@ -885,12 +885,17 @@ function initializeProtocol() {
 
     showNextScene();
 }
-   function continueProtocol() {
+function continueProtocol() {
 
     document.querySelector("#continue-button").style.display =
         "none";
 
     const scene = scenes[currentScene - 1];
+
+    if (scene.buttonText === "[ MAKE A WISH ]") {
+        showBirthdayCake();
+        return;
+    }
 
     if (scene.buttonText === "END TRANSMISSION.") {
         shutdownSystem();
