@@ -335,6 +335,28 @@ body.shutdown {
     }
 }
 
+.cake-fade-out {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.heart-fade-in {
+    opacity: 0;
+    animation: heartFadeIn 1s ease forwards;
+}
+
+@keyframes heartFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* FINAL HEART */
 .heart-screen {
     text-align: center;
