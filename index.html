@@ -338,6 +338,37 @@ body.shutdown {
         transform: translateX(30px) scale(0.15);
     }
 }
+
+/* FINAL HEART */
+.heart-screen {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.heart {
+    color: #ff4fd8;
+    font-size: 110px;
+    line-height: 1;
+    text-shadow:
+        0 0 5px #ff4fd8,
+        0 0 15px #ff4fd8,
+        0 0 30px rgba(255, 79, 216, 0.7);
+    animation: gentleHeartPulse 2.5s ease-in-out infinite;
+    margin-bottom: 45px;
+}
+
+@keyframes gentleHeartPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.85;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
 body.shutdown .screen {
     opacity: 0;
 }
@@ -1108,9 +1139,7 @@ function showBirthdayCake() {
         </div>
     `;
 
-}
-    function blowCandles() {
-
+function blowCandles() {
     const flames = document.querySelectorAll(".flame");
 
     flames.forEach(function(flame) {
@@ -1118,21 +1147,28 @@ function showBirthdayCake() {
     });
 
     const button = document.querySelector("#blow-button");
-
     button.style.display = "none";
 
     setTimeout(function() {
+        const cakeContainer = document.querySelector(".cake-container");
 
-        const endButton = document.createElement("button");
+        cakeContainer.innerHTML = `
+            <div class="heart-screen">
+                <div class="heart">♡</div>
 
-        endButton.className = "initialize-button";
-        endButton.textContent = "[ END TRANSMISSION. ]";
-        endButton.onclick = shutdownSystem;
+                <button
+                    class="initialize-button"
+                    id="end-transmission-button">
+                    [ END TRANSMISSION. ]
+                </button>
+            </div>
+        `;
 
-        document.querySelector(".cake-container").appendChild(endButton);
+        document
+            .querySelector("#end-transmission-button")
+            .addEventListener("click", shutdownSystem);
 
     }, 900);
-
 }
 </script>
     
