@@ -147,7 +147,139 @@ h1.warning {
 body.shutdown {
     background-color: #000000;
 }
+/* BIRTHDAY CAKE */
 
+.cake-container {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.cake {
+    position: relative;
+    width: 260px;
+    height: 150px;
+    margin: 40px auto 25px;
+}
+
+/* Cake layers */
+.cake-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 220px;
+    height: 65px;
+    border: 2px solid #00ff88;
+    background: #111;
+    box-shadow:
+        0 0 10px rgba(0, 255, 136, 0.5),
+        inset 0 0 20px rgba(0, 255, 136, 0.08);
+}
+
+.cake-top {
+    position: absolute;
+    bottom: 65px;
+    left: 35px;
+    width: 190px;
+    height: 35px;
+    border: 2px solid #00ffff;
+    background: #151515;
+    box-shadow:
+        0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* 30 on the cake */
+.cake-number {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    color: #00ffff;
+    font-size: 42px;
+    font-weight: bold;
+    text-shadow:
+        0 0 5px #00ffff,
+        0 0 15px #00ffff;
+    z-index: 3;
+}
+
+/* Candles */
+.candle {
+    position: absolute;
+    bottom: 100px;
+    width: 10px;
+    height: 45px;
+    border: 1px solid #00ff88;
+    background: #111;
+    box-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+    z-index: 4;
+}
+
+.candle-1 {
+    left: 65px;
+}
+
+.candle-2 {
+    left: 125px;
+}
+
+.candle-3 {
+    left: 185px;
+}
+
+/* Flames */
+.flame {
+    position: absolute;
+    width: 12px;
+    height: 18px;
+    top: -22px;
+    left: -2px;
+    border-radius: 50% 50% 50% 50%;
+    background: #00ffff;
+    box-shadow:
+        0 0 5px #00ffff,
+        0 0 15px #00ffff,
+        0 0 25px rgba(0, 255, 255, 0.7);
+    animation: flicker 0.7s infinite alternate;
+}
+
+@keyframes flicker {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0.8);
+    }
+}
+
+/* Blow-out button */
+.blow-button {
+    margin-top: 10px;
+}
+
+.blow-button:hover {
+    background: #00ffff;
+    border-color: #00ffff;
+    color: #050505;
+    box-shadow: 0 0 20px #00ffff;
+}
+
+/* Hidden after candles are blown out */
+.flame.blown {
+    animation: blowOut 0.6s forwards;
+}
+
+@keyframes blowOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(25px) scale(0.2);
+    }
+}
 body.shutdown .screen {
     opacity: 0;
 }
