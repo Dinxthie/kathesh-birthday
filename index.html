@@ -1007,7 +1007,50 @@ function showNextLine(lines, lineIndex) {
     }
 
 } // Closes showNextLine()
+function showBirthdayCake() {
 
+    const messageArea = document.querySelector("#message-area");
+
+    messageArea.innerHTML = `
+        <div class="cake-container">
+
+            <h1 class="system">
+                NOW MAKE A WISH AND BLOW THE CANDLES
+            </h1>
+
+            <div class="cake">
+
+                <div class="candle candle-1">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="candle candle-2">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="candle candle-3">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="cake-top"></div>
+
+                <div class="cake-bottom">
+                    <div class="cake-number">30</div>
+                </div>
+
+            </div>
+
+            <button
+                id="blow-button"
+                class="initialize-button blow-button"
+                onclick="blowCandles()">
+                [ CLICK TO BLOW THE CANDLES ]
+            </button>
+
+        </div>
+    `;
+
+}
 </script>
     
 </body>
